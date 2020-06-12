@@ -35,14 +35,14 @@ public class PhotoGalleryFragment extends Fragment {
         new FetchItemsTask().execute();
     }
 
-    private class PhotoHolder extends  RecyclerView.ViewHolder {
+    private class PhotoHolder extends RecyclerView.ViewHolder {
         // private TextView mTitleTextView;
         private ImageView mItemImageView;
 
         public PhotoHolder(View itemView) {
             super(itemView);
             mItemImageView = itemView.findViewById(R.id.gallery_item_imageView);
-           // mTitleTextView = (TextView) itemView;
+            // mTitleTextView = (TextView) itemView;
         }
         /*public void bindGalleryItem(GalleryItem item) {
             mTitleTextView.setText(item.toString());
@@ -63,9 +63,9 @@ public class PhotoGalleryFragment extends Fragment {
         @NonNull
         @Override
         public PhotoHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-           //TextView textView = new TextView(getActivity());
-           //return new PhotoHolder(textView);
-             LayoutInflater inflater = LayoutInflater.from(getActivity());
+            //TextView textView = new TextView(getActivity());
+            //return new PhotoHolder(textView);
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
             View view = inflater.inflate(R.layout.gallery_item, viewGroup, false);
             return new PhotoHolder(view);
 
@@ -73,9 +73,9 @@ public class PhotoGalleryFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull PhotoHolder photoHolder, int position) {
-           GalleryItem galleryItem = mGalleryItems.get(position);
+            GalleryItem galleryItem = mGalleryItems.get(position);
             // photoHolder.bindGalleryItem(galleryItem);
-            Drawable placeHolder = getResources().getDrawable(R.drawable.bill_up_close);
+            Drawable placeHolder = getResources().getDrawable(R.drawable.montania);
             photoHolder.bindDrawable(placeHolder);
 
         }
@@ -107,17 +107,17 @@ public class PhotoGalleryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle saveInstanceState){
+                             Bundle saveInstanceState) {
         View v = inflater.inflate(R.layout.fragment_photo_gallery, container, false);
 
-        mPhotoRecyclerView= v.findViewById(R.id.photo_recycler_view);
+        mPhotoRecyclerView = v.findViewById(R.id.photo_recycler_view);
         mPhotoRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         setupAdapter();
         return v;
     }
 
     private void setupAdapter() {
-        if(isAdded()) {
+        if (isAdded()) {
             mPhotoRecyclerView.setAdapter(new PhotoAdapter(mItems));
         }
     }
